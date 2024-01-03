@@ -13,6 +13,7 @@ import 'package:intigo_tuento/themes/useable.dart';
 import 'package:intigo_tuento/view/login_page.dart';
 import 'package:intigo_tuento/widget/widget_dar_creator.dart';
 
+import '../controller/creator_controller.dart';
 import '../themes/colors.dart';
 import '../themes/fonts.dart';
 import '../widget/small_detail.dart';
@@ -94,22 +95,6 @@ class Beranda extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            BannerKreatorSmall(),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            BannerKreatorSmall(),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            BannerKreatorSmall(),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            BannerKreatorSmall(),
-                            SizedBox(
-                              width: 8,
-                            ),
                             const BannerKreatorSmall(),
                           ],
                         ),
@@ -153,22 +138,28 @@ class Beranda extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           gradient: linearGradientCard,
                         ),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Column(children: [
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 4.5),
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 4.5),
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 5.0),
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 4.5),
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 3.0),
-                            IdentitasKreator3("Raymond Chin", "Content Creator",
-                                true, "kang_raymond1.png", 4.1),
-                          ]),
+                        child: GetBuilder<CreatorController>(
+                          init:
+                              CreatorController(), // Make sure the controller is initialized
+                          builder: (controller) {
+                            if (controller.creators.isEmpty) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: controller.creators.map((creator) {
+                                  return IdentitasKreator3(
+                                    creator.name,
+                                    "Content Creator", // Replace with actual category from your data
+                                    creator.isVerified,
+                                    "assets/images/${creator.profilePhoto}", // Adjust image path as necessary
+                                    4.5, // Replace with actual rating
+                                  );
+                                }).toList(),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),

@@ -91,14 +91,14 @@ class BookingPageView extends StatelessWidget {
                               VerifiedAcc(20),
                             ],
                           ),
-                          Row(
-                            children: [
-                              Text(meeting.creator.professions[0].name,
-                                  style: monts12W700),
-                              Spacer(),
-                              RatingKreator(rating: 5.0, size: 15),
-                            ],
-                          ),
+                          // Row(
+                          //   children: [
+                          //     Text(meeting.creator.professions[0].name,
+                          //         style: monts12W700),
+                          //     Spacer(),
+                          //     RatingKreator(rating: 5.0, size: 15),
+                          //   ],
+                          // ),
                         ],
                       ),
                     ),

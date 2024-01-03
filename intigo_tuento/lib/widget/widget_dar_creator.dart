@@ -54,7 +54,7 @@ class BannerKreatorSmall extends StatelessWidget {
                           width: 4.54,
                         ),
                         Text(
-                          "Group Call",
+                          "Video Call",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 6,

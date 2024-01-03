@@ -12,8 +12,8 @@ class MeetingController extends GetxController {
   }
 
   Future<void> fetchMeeting() async {
-    var response = await http
-        .get(Uri.parse('https://api.hackathon.dinotis.com/v1/meetings?size=5'));
+    var response =
+        await http.get(Uri.parse('http://127.0.0.1:8000/api/meetings'));
     if (response.statusCode == 200) {
       MeetingResponse data = meetingResponseFromJson(response.body);
       meeting = data.meetings;

@@ -39,7 +39,7 @@ class Creator {
     required this.username,
     required this.profilePhoto,
     required this.isVerified,
-    required this.professions,
+    // required this.professions,
   });
 
   String id;
@@ -47,7 +47,7 @@ class Creator {
   String username;
   String profilePhoto;
   bool isVerified;
-  List<Profession> professions;
+  //List<Profession> professions;
 
   factory Creator.fromJson(Map<String, dynamic> json) => Creator(
         id: json["id"],
@@ -55,8 +55,8 @@ class Creator {
         username: json["username"],
         profilePhoto: json["profilePhoto"],
         isVerified: json["isVerified"],
-        professions: List<Profession>.from(
-            json["professions"].map((x) => Profession.fromJson(x))),
+        // professions: List<Profession>.from(
+        //     json["professions"].map((x) => Profession.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -65,7 +65,7 @@ class Creator {
         "username": username,
         "profilePhoto": profilePhoto,
         "isVerified": isVerified,
-        "professions": List<dynamic>.from(professions.map((x) => x.toJson())),
+        // "professions": List<dynamic>.from(professions.map((x) => x.toJson())),
       };
 }
 

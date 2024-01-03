@@ -111,7 +111,7 @@ class DashboardView extends StatelessWidget {
                                     padding: const EdgeInsets.only(right: 24),
                                     child: CardCreatorDashboardView2(
                                         e.name,
-                                        e.professions[0].name,
+                                        e.name,
                                         e.profilePhoto,
                                         e.isVerified,
                                         5.0),
@@ -151,7 +151,7 @@ class CardWithGesture1 extends StatelessWidget {
       },
       child: CardKreator3(
         nama: meeting.creator.name,
-        title: meeting.creator.professions[0].name,
+        title: meeting.creator.name,
         judulAcara: meeting.title,
         tanggal: meeting.date,
         waktu: "${meeting.startTime} - ${meeting.endTime}",

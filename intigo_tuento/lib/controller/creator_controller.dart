@@ -14,8 +14,8 @@ class CreatorController extends GetxController {
   }
 
   Future<void> fetchCreator() async {
-    var response = await http
-        .get(Uri.parse('https://api.hackathon.dinotis.com/v1/creators?size=5'));
+    var response =
+        await http.get(Uri.parse('http://127.0.0.1:8000/api/creators'));
     if (response.statusCode == 200) {
       CreatorResponse data = creatorResponseFromJson(response.body);
       creators = data.creators;
